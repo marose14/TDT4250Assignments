@@ -7,6 +7,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="credits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Semester">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"
+        eType="#//SelectiveCourse" containment="true" eOpposite="#//SelectiveCourse/semester"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="part" eType="#//SemesterPart"/>
   </eClassifiers>
@@ -16,8 +18,6 @@
         eType="#//Semester" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"
         eType="#//Course" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectiveCouses" upperBound="-1"
-        eType="#//SelectiveCourse" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SemesterPart">
     <eLiterals name="Fall"/>
@@ -31,7 +31,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelectiveCourse">
     <eStructuralFeatures xsi:type="ecore:EReference" name="course" eType="#//Course"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="semester" eType="#//Semester"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="semester" eType="#//Semester"
+        eOpposite="#//Semester/courses"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

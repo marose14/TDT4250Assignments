@@ -4,30 +4,17 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:studyplan="assignment1"
-    xsi:schemaLocation="assignment1 studyplan.ecore"
-    programtype="Master">
+    xsi:schemaLocation="assignment1 studyplan.ecore">
   <semesters
-      year="1"/>
+      year="1">
+    <selectiveCouses
+        course="//@courses.0"
+        semester="//@semesters.0"/>
+  </semesters>
   <semesters
-      year="2"/>
-  <semesters
-      year="2"
+      year="1"
       part="Spring"/>
-  <semesters
-      year="1"/>
-  <courses name="Avansert Programvaredesign"
+  <courses name="Avansert programvaredeisgn"
+      code="TDT4250"
       credits="7.5"/>
-  <courses name="Design av grafiske brukergrensesnitt"
-      code="IT3402"
-      credits="7.5"/>
-  <courses name="Informasjonssystemer"
-      code="TDT4175"
-      credits="7.5"/>
-  <courses name="Information Retrieval"
-      code="TDT4117"
-      credits="7.5"/>
-  <selectiveCouses
-      course="//@courses.1"
-      semester="//@semesters.0"
-      isMandatory="true"/>
 </studyplan:Program>
