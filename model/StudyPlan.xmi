@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studyplan:StudyPlan
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:studyplan="assignment1"
+    xsi:schemaLocation="assignment1 studyplan.ecore">
+  <programs
+      programtype="Master">
+    <semesters
+        year="1">
+      <courses
+          course="//@courses.0"/>
+      <courses
+          course="//@courses.2"
+          isMandatory="true"/>
+    </semesters>
+  </programs>
+  <programs>
+    <semesters
+        year="1">
+      <courses
+          course="//@courses.1"
+          isMandatory="true"/>
+    </semesters>
+  </programs>
+  <courses name="Avansert programvaredeisng"
+      code="TDT4250"
+      credits="7.5"/>
+  <courses name="ITGK"
+      credits="7.5"/>
+  <courses name="Design av grafiske brukergrensesnitt"
+      credits="7.5"/>
+</studyplan:StudyPlan>
