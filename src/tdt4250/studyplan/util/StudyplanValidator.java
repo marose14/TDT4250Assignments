@@ -137,14 +137,14 @@ public class StudyplanValidator extends EObjectValidator {
 	 * Validates the needsEnoughCourses constraint of '<em>Semester</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateSemester_needsEnoughCourses(Semester semester, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		float sumOfCredits = 0.0f;
+		for (SelectiveCourse selectiveCourse : semester.getCourses()) {
+			sumOfCredits += selectiveCourse.getCourse().getCredits();
+		}
+		if (sumOfCredits >= 30) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
@@ -184,14 +184,22 @@ public class StudyplanValidator extends EObjectValidator {
 	 * Validates the needsEnoughSemesters constraint of '<em>Program</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateProgram_needsEnoughSemesters(Program program, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		int sumOfSemesters = program.getSemesters().size();
+		boolean hasEnoughSemesters = false;
+		if (program.getProgramtype() == ProgramType.BACHELOR) {
+			hasEnoughSemesters = sumOfSemesters == 6 ? true : false;
+		}
+		else if (program.getProgramtype() == ProgramType.INTEGRATED_MASTER) {
+			hasEnoughSemesters = sumOfSemesters == 10 ? true : false;
+		}
+		else if (program.getProgramtype() == ProgramType.MASTER) {
+			hasEnoughSemesters = sumOfSemesters == 4 ? true : false;
+		}
+		
+		if (hasEnoughSemesters) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
